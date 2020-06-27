@@ -1,0 +1,56 @@
+<p-carousel
+  [value]="produtos"
+  [numVisible]="4"
+  [numScroll]="3"
+  [circular]="false"
+  [responsiveOptions]="responsiveOptions"
+>
+  <p-header class="">
+    <h3>
+      <i class="pi pi-star-o" style="margin-right: 12px;"></i>
+      {{ titleCarousel }}
+    </h3>
+  </p-header>
+
+  <ng-template let-produto pTemplate="item">
+    <div class="produto-details">
+      <div class="p-grid p-nogutter">
+        <div class="p-col-12 img-carousel">
+          <img src="assets/img/produto-sem-imagem.png" />
+        </div>
+        <div class="p-col-12 produto-data">
+          <div class="produto-qt">{{ produto.quantidade }} Un</div>
+          <div class="produto-desc">
+            <b>{{ produto.id }}</b> {{ produto.descricao | uppercase }}
+          </div>
+          <div class="produto-valor">
+            <b>{{ produto.valor }}</b>
+          </div>
+
+          <hr />
+
+          <div class="qt-input p-grid p-align-center p-justify-around">
+            <p-inputNumber
+              mode="decimal"
+              [showButtons]="true"
+              buttonLayout="vertical"
+              spinnerMode="vertical"
+              decrementButtonClass="ui-button-secondary"
+              incrementButtonClass="ui-button-secondary"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+            ></p-inputNumber>
+            <button
+              pButton
+              type="button"
+              [disabled]="processando"
+              [icon]="iconProcessando"
+              iconPos="left"
+              (click)="adicionarProduto()"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

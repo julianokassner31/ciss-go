@@ -1,0 +1,35 @@
+<p-toast position="top-center" style="width: 300px;"></p-toast>
+<div class="container">
+  <div class="content p-grid p-align-center p-justify-end">
+    <form [formGroup]="loginForm">
+      <img src="assets/img/Logo-black.svg" />
+
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input
+          formControlName="userName"
+          type="text"
+          pInputText
+          placeholder="Usuário"
+        />
+      </div>
+
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-lock"></i></span>
+        <input
+          formControlName="password"
+          type="password"
+          pInputText
+          placeholder="Senha"
+        />
+      </div>
+
+      <button
+        pButton
+        label="Entrar"
+        [disabled]="!loginForm.valid"
+        (click)="login()"
+      ></button>
+    </form>
+  </div>
+</div>

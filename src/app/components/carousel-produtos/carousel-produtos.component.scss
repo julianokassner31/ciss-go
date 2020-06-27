@@ -1,0 +1,47 @@
+@import "../../../styles/colors.scss";
+@import "../../../styles/fonts.scss";
+
+.produto-details {
+  border: 1px solid $border-cinza;
+  border-radius: 4px;
+  margin: 0 12px;
+  text-align: center;
+  background-color: $white;
+  padding: 2px 16px;
+  text-align: left;
+
+  .img-carousel {
+    text-align: center;
+    img {
+      max-height: 150px;
+      max-width: 200px;
+      padding: 10px 0;
+    }
+  }
+
+  .produto-qt {
+    background-color: $cinza-medio;
+    font: 400 0.75rem $font-family-padrao;
+    padding: 3px 6px;
+    margin: 0px 0px 10px;
+    color: $white;
+    border-radius: 3px;
+  }
+
+  .produto-valor {
+    padding: 50px 0 16px 0;
+    font: 700 1.25rem;
+  }
+
+  .qt-input {
+    padding: 16px 16px;
+    button {
+      background-color: $verde-go-active;
+      border: none;
+      border-color: none;
+      box-shadow: none;
+      border-radius: 4px;
+      height: 100%;
+    }
+  }
+}

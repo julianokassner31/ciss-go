@@ -1,0 +1,29 @@
+.header {
+  height: 64px;
+  background-color: #3c4858;
+
+  .ui-inputtext {
+    text-align: center !important;
+  }
+  .logo {
+    background-image: url(http://comercial.ciss.com.br:4664/go/resources/images/Logo.svg);
+    background-repeat: no-repeat;
+    height: 40px;
+    cursor: pointer;
+    background-position: center;
+  }
+
+  .menu {
+    text-align: center;
+    i {
+      font-size: 2em;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .logo {
+      display: none;
+    }
+  }
+}

@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/colors.scss";
+
+body {
+  font: 400 13px/1.25 Roboto, Helvetica, arial, sans-serif;
+  color: $cinza-medio;
+}
+
+.ui-inputtext {
+  box-shadow: none !important;
+  border-color: $border-cinza !important;
+}
+.ui-inputtext:enabled:focus:not(.ui-state-error) {
+  border-color: $verde-go-active !important;
+}
+
+.ui-button {
+  border: none !important;
+}
+button.ui-button.ui-widget.ui-state-default.ui-corner-all {
+  border-radius: 0;
+}
+
+span.ui-carousel-dot-icon.pi {
+  padding: 10px;
+}
+
+span.ui-carousel-dot-icon.pi.pi-circle-on {
+  background-color: $verde-go-active !important;
+}
