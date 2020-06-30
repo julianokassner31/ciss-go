@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.messageService.add({
           severity: 'error',
           detail:
-            error.status == 401
+            error.status === 401
               ? 'Usuário ou Senha inválido'
               : 'Entre em contato com o suporte',
         });

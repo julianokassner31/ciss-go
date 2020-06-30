@@ -21,7 +21,8 @@ export class LoginService {
       .pipe(
         map((resp) => resp.data),
         tap((data) => {
-          this.store.dispatch(saveToken({ token: this.parseToken(data) }));
+          const token = this.parseToken(data);
+          localStorage.setItem('token', JSON.stringify(token));
         })
       );
   }
