@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CISSGo';
+  loading$: Observable<any>;
+  constructor(private store: Store<{ loading: boolean }>) {
+    this.loading$ = this.store.pipe(select('loading'));
+  }
 }

@@ -1,8 +1,9 @@
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+import { Token } from '../model';
+import { saveToken } from '../state/actions/token.actions';
 import { RequestService } from './request.service';
 
 @Injectable({
@@ -18,8 +19,14 @@ export class LoginService {
     return this.requestService
       .postTypeFormUrlEnconded('/auth/login?loading', form)
       .pipe(
-        map((resp) => resp.data)
-        // tap((data) => this.store.dispatch(saveToken(data)))
+        map((resp) => resp.data),
+        tap((data) => {
+          this.store.dispatch(saveToken({ token: this.parseToken(data) }));
+        })
       );
+  }
+
+  parseToken(data: any) {
+    return new Token(data);
   }
 }

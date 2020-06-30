@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 import { MessageService } from 'primeng/api';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -15,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarouselProdutosComponent } from './components/carousel-produtos/carousel-produtos.component';
@@ -25,6 +27,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginService } from './services/login.service';
 import { loadingReducer } from './state/reducers/loading.reducer';
+import { tokenReducer } from './state/reducers/token.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +62,9 @@ import { loadingReducer } from './state/reducers/loading.reducer';
     }),
     StoreModule.forRoot({
       loading: loadingReducer,
+      token: tokenReducer,
     }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [LoginService, MessageService, httpInterceptorProviders],
   bootstrap: [AppComponent],

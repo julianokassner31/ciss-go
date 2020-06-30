@@ -18,13 +18,15 @@ export class LoadingInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const loading = req.url.indexOf('?loading') > 0;
-    debugger;
+
     if (loading) {
       this.store.dispatch(showLoading());
     }
 
     return next
       .handle(req)
-      .pipe(tap((req) => this.store.dispatch(hideLoading())));
+      .pipe(
+        tap((req) => setTimeout(() => this.store.dispatch(hideLoading()), 1000))
+      );
   }
 }

@@ -1,4 +1,4 @@
 <div class="container">
-  <go-loading></go-loading>
+  <go-loading *ngIf="loading$ | async"></go-loading>
   <router-outlet></router-outlet>
 </div>

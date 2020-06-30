@@ -29,7 +29,6 @@ export class RequestService {
 
   private generateFormaData(form: FormGroup): string {
     const params = [];
-    debugger;
     Object.keys(form.value).forEach((key) => {
       params.push(key.concat('=').concat(form.value[key]));
     });

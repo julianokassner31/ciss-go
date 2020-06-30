@@ -34,14 +34,14 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.login(this.loginForm).subscribe(
       (data) => {
-        // this.configService
-        //   .getConfiguracao(
-        //     data.usuario.empresaPadrao.idEmpresa,
-        //     data.usuario.idUsuario
-        //   )
-        //   .subscribe((resp) => {
-        //     // this.router.navigate(['inicio']);
-        //   });
+        this.configService
+          .getConfiguracao(
+            data.usuario.empresaPadrao.idEmpresa,
+            data.usuario.idUsuario
+          )
+          .subscribe((resp) => {
+            this.router.navigate(['inicio']);
+          });
       },
       (error) => {
         this.messageService.add({
